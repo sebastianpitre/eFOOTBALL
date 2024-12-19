@@ -30,6 +30,7 @@
   <!-- Mensaje pidiendo al usuario girar el teléfono -->
   <div class="orientation-message">
     <h3 class="mt-12">Por favor, gira tu teléfono a modo horizontal para continuar.</h3>
+    <p>Se recomienda subir el volumen para disfrutar de los efectos de sonido</p>
     <img src="/img/horiente.png" class="w-50" alt="">
   </div>
 {/if}
