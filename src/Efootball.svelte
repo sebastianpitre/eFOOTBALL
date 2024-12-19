@@ -21,6 +21,7 @@
 
   // Limpiar el evento de resize cuando el componente se destruye
   import { onDestroy } from 'svelte';
+    import FullScreen from './components/FullScreen.svelte';
   onDestroy(() => {
     window.removeEventListener('resize', checkOrientation);
   });
@@ -34,7 +35,7 @@
     <img src="/img/horiente.png" class="w-50" alt="">
   </div>
 {/if}
-
+<FullScreen />
 {#if isLandscape}
   <!-- Aquí va el contenido de la página si el teléfono está en modo horizontal -->
   <div class="content">

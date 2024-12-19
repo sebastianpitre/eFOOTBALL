@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import Carga from './Carga.svelte';
+    import FullScreen from './FullScreen.svelte';
 
   let showOverlay = true;
   let isLoading = false;
@@ -53,6 +54,7 @@
       <div class="background"></div>
     </a>
   </div>
+<FullScreen />
 </main>
 
 <style>
@@ -83,7 +85,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
+    width: 100%;
+    height: 100vh;
   }
 
   /* Div superpuesto */
@@ -93,7 +96,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8); /* Fondo negro translúcido */
+    background: rgb(0, 0, 0); /* Fondo negro translúcido */
     z-index: 2;
     display: flex;
     justify-content: center;

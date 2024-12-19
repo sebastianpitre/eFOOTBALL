@@ -1,8 +1,9 @@
 <script>
-
+    import FullScreen from "../components/FullScreen.svelte";
 </script>
 
 <div class="fullscreen-container">
+  <FullScreen />
 
   <div>
     <div class="background"></div>
