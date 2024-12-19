@@ -8,7 +8,7 @@
     <div class="background"></div>
   </div>
 
-  <audio controls autoplay>
+  <audio controls autoplay loop>
     <source src="/audios/gemidos.mp3" type="audio/mpeg">
   </audio>
 </div>
