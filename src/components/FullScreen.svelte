@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import { onDestroy } from 'svelte';
   
     // Función para activar el modo pantalla completa
     function enterFullScreen() {
@@ -16,25 +17,39 @@
       }
     }
   
-    // Verificar si el dispositivo es móvil
-    let isMobile = false;
+    // Función para salir del modo pantalla completa
+    function exitFullScreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.mozCancelFullScreen) { // Firefox
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) { // Chrome, Safari y Opera
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) { // IE/Edge
+        document.msExitFullscreen();
+      }
+    }
+  
+    // Función que se activa con el toque del usuario para poner la pantalla en modo completo
+    function handleTap() {
+      enterFullScreen(); // Activa el modo pantalla completa
+    }
   
     onMount(() => {
-      if (window.innerWidth <= 768) { // Verifica si la pantalla tiene un ancho menor o igual a 768px (típico de dispositivos móviles)
-        isMobile = true;
-        // Activar pantalla completa al hacer clic en la página
-        document.body.addEventListener('click', enterFullScreen);
-      }
+      // Agrega un evento de toque para activar la pantalla completa
+      document.addEventListener('click', handleTap);
     });
   
-    // Limpieza del evento cuando el componente se desmonta
-    import { onDestroy } from 'svelte';
+    // Limpia el evento cuando el componente se destruye
     onDestroy(() => {
-      document.body.removeEventListener('click', enterFullScreen);
+      document.removeEventListener('click', handleTap);
     });
   </script>
   
   <style>
-    /* No es necesario agregar estilos, pero puedes personalizarlo si lo deseas */
+    /* Puedes agregar un estilo opcional, como una indicación visual de que el toque activará la pantalla completa */
+    body {
+      cursor: pointer;
+    }
   </style>
   
