@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import Carga from './components/Carga.svelte';
+  import Carga from './Carga.svelte';
 
   let showOverlay = true;
   let isLoading = false;
